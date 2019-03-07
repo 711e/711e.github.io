@@ -1,14 +1,16 @@
 ---
-bg: "dafu.png"
 layout: post
-title:  "Markdown"
+bg: 'dafu.png'
+title: "Markdown"
 crawlertitle: "About Markdown"
-summary: "Basic operation of Markdown
-date:   2019-03-07 12:00:00 +0700
+summary: "Basic operetion of Markdown"
+date: 2019-03-07
+tags : ['Markdown']
+slug: post-url
+author: "711E"
 categories: posts
-tags: ['Markdown']
-author: 711E
 ---
+
 一.Markdown基础语法
 ===
 1.标题
