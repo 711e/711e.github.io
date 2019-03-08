@@ -2,13 +2,13 @@
 layout: post
 title:  "Tensorflow Dataset 读取"
 crawlertitle: "Tensorflow Dataset 读取"
-summary: "Jekyll default page"
+summary: "Dataset的batch读取"
 date:   2019-03-07 12:11:10 +0700
 categories: posts
 tags: 'tensorflow'
 author: 711E
 ---
-***
+
 >Dataset是存储Tensor结构的类，它可以保存一批Tensor结构，以供模型来训练或者测试
 ##### 1.首先将数据读入内存，然后使用`tf.data.Dataset`
 
