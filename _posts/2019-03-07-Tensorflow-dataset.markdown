@@ -8,22 +8,35 @@ categories: posts
 tags: 'tensorflow'
 author: 711E
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+***
+>Dataset是存储Tensor结构的类，它可以保存一批Tensor结构，以供模型来训练或者测试
+##### 1.首先将数据读入内存，然后使用`tf.data.Dataset`
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+```
+images =
+labels =
+data = tf.data.Dataset.from_tensor_slices((images, labels
+# type(data):<class 'tensorflow.python.data.ops.dataset_ops.TensorSliceDataset'>
+data = data.shuffle(1000)
+data = data.batch(batch_size)
+print(data.output_shapes)
+print(data.output_types)
+iterator = tf.data.Iterator.from_structure(data.output_types, data.output_shapes)
+# 构建迭代器
+data = interator.make_initializer(data)
+# 初始化迭代器
+with tf.Session() as sess:
+  sess.run(data)
+  try:
+    images, labels = iterator.get_next()
+  except tf.errors.OutOfRangeError:
+  # 迭代器iterator只能往前遍历，如果遍历完之后还调用get_next()的话，会报tf.errors.OutOfRangeError错误，因此需要使用try-catch
+    sess.run(data)
+```
 
-Jekyll also offers powerful support for code snippets:
-
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
-
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
-
-[jekyll-docs]: http://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+***
+>接口说明：
+`tf.data.Dataset.from_tensor_slices`
+* 这个接口允许我们传递一个或多个Tensor结构给Dataset因为默认把Tensor的第一个维度作为数据数目的标识，所以要保持数据结构中第一维的一致性
+* 第一维被认为是数据的数量
+* 该接口可以接受任何Iterator，包括字典
