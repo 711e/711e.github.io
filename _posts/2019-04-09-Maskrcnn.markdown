@@ -1,0 +1,39 @@
+---
+layout: post
+title:  "Target Detection 2"
+crawlertitle: "Maskrcnn"
+summary: "目标检测"
+date:   2019-04-09 15:39:00 +0700
+categories: posts
+tags: 'Target Detection'
+author: 711E
+---
+
+一、Maskrcnn
+---
+把原有的Faster-RCNN进行扩展，添加一个分支使用现有的检测对目标进行并行预测。
+###### Maskrcnn特点：
+1. 在边框识别的基础上添加分支网络，用于语义Mask识别
+2. 训练简单，相对于 Faster 仅增加一个小的 Overhead，可以跑到5FPS
+3. 可以方便的扩展到其他任务，比如人的姿态估计等
+4. 不借助 Trick，在每个任务上，效果优于目前所有的 single-model entries
+
+![显示图片](http://711e.github.io/assets/images/maskrcnn1.png)
+
+1. 将 Roi Pooling 层替换成了 RoiAlign
+2. 添加并列的 FCN 层（mask 层）
+
+二.ROI Pooling
+---
+regions of interest(Roi):给定一张输入image找出objects可能存在的所有位置。这一阶段的输出应该是一系列object可能位置的bounding box。这些通常称之为region proposals或者 regions of interest
+
+1. 根据输入image，将ROI映射到feature map对应位置
+2. 将映射后的区域划分为相同大小的sections（sections数量与输出的维度相同）
+3. 对每个sections进行max pooling操作
+
+三.RoiAlign
+---
+去掉ROI Pooling过程中所有的量化过程，包括从原图proposal到最后一层feature map映射，以及把feature map划分成m*m的bin过程中的量化。
+
+四、结构
+![显示图片](http://711e.github.io/assets/images/maskrcnn3.png)

@@ -1,16 +1,16 @@
 ---
 layout: post
-title:  "Target Detesction 1"
+title:  "Target Detection 1"
 crawlertitle: "open ai lab 目标检测"
 summary: "目标检测"
 date:   2019-04-06 12:13:00 +0700
 categories: posts
-tags: 'Target Detesction'
+tags: 'Target Detection'
 author: 711E
 ---
 
-一、c++
-===
+# 一、c++
+
 
 1.hpp和cpp
 ---
@@ -84,8 +84,7 @@ SIMPLE t1, t2[20], *t3;
 
 
 
-二、编译
-===
+# 二、编译
 
 1.terminal编译
 ---
