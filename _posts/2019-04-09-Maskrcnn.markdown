@@ -36,4 +36,5 @@ regions of interest(Roi):给定一张输入image找出objects可能存在的所�
 去掉ROI Pooling过程中所有的量化过程，包括从原图proposal到最后一层feature map映射，以及把feature map划分成m*m的bin过程中的量化。
 
 四、结构
+---
 ![显示图片](http://711e.github.io/assets/images/maskrcnn3.png)
