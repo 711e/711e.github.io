@@ -1,7 +1,7 @@
 ---
 layout: post
 bg: 'dafu.png'
-title: "debug_record"
+title: "Debug Record"
 crawlertitle: "About SYS"
 summary: "记录记录一些问题，和调试情况"
 date: 2019-04-12
@@ -12,7 +12,9 @@ categories: posts
 ---
 
 ***
+
 2019-04-12
+
 ---
 * 网络：生成器31层，判别器5层，单层数据量控制在6G以下
 * 输入：默认(0,1]均匀分布
