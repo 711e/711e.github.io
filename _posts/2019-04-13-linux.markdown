@@ -1,0 +1,55 @@
+---
+layout: post
+title:  "Voice Interaction 1"
+crawlertitle: "远场语音交互"
+summary: "语音交互"
+date:   2019-04-06 12:13:00 +0700
+categories: posts
+tags: 'Voice Interaction'
+author: 711E
+---
+
+一、Linux
+---
+* ls
+* cd
+* pwd:查看当前路径
+* sudo chmod +x filename:为文件增加属性
+* mv
+* rm,rmdir
+* mkdir
+
+
+二、vim
+---
+* i:编辑
+* esc:退出编辑，进入命令模式
+* ‘：’：输入命令
+* w:保存
+* p:退出
+* /int:查找
+
+三、语音采集
+---
+->example/test
+-> sudo arecord -l
+```
+**** List of CAPTURE Hardware Devices ****
+card 0: realtekrt5651co [realtek,rt5651-codec], device 0: ff890000.i2s-rt5651-aif1 rt5651-aif1-0 []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 2: RKmsm261s4030h0 [RK_msm261s4030h0], device 0: msm261s4030h0 PCM rockchip-msm261s4030h0-card-hifi-0 []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 3: Audio [Sabine Array Audio], device 0: USB Audio [USB Audio]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+```
+-> vim go.sh 改device成3.0
+-> ./go.sh
+
+四、makefile
+---
+LDFLAGS 引用第三方库 -L配置第三方库地址 -l库名
+SRC_OBJ 指定obj文件生成方式规则
+        foreach 遍历
