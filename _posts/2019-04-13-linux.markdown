@@ -3,9 +3,9 @@ layout: post
 title:  "Voice Interaction 1"
 crawlertitle: "远场语音交互"
 summary: "语音交互"
-date:   2019-04-06 12:13:00 +0700
+date:   2019-04-14 12:13:00 +0700
 categories: posts
-tags: 'Voice Interaction'
+tags: 'Voice_Interaction'
 author: 711E
 ---
 
