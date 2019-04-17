@@ -18,6 +18,14 @@ author: 711E
 * mv
 * rm,rmdir
 * mkdir
+* scp:
+  1. 从服务器下载文件：`scp username@servername:/remote_path/filename ~/local_destination`
+  2. 上传本地文件到服务器：`scp ~/local_path/local_filename username@servername:/remote_path`
+  3. 从服务器下载整个目录：`scp -r username@servername:/remote_path/remote_dir/ ~/local_destination`
+  4. 上传目录到服务器：`scp  -r ~/local_dir username@servername:/remote_path/remote_dir`
+* tar:
+  1. 压缩：`tar -cjf all.tar.bz2 *.jpg `
+  2. 解压：`tar -xjf all.tar.bz2 `
 
 
 二、vim
@@ -53,3 +61,11 @@ card 3: Audio [Sabine Array Audio], device 0: USB Audio [USB Audio]
 LDFLAGS 引用第三方库 -L配置第三方库地址 -l库名
 SRC_OBJ 指定obj文件生成方式规则
         foreach 遍历
+五、编码/解码
+---
+##### 1.编码
+
+
+
+
+##### 2.解码
