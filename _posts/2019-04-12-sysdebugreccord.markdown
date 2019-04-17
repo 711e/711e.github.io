@@ -10,13 +10,15 @@ slug: post-url
 author: "711E"
 categories: posts
 ---
-2018-04-17
+2019-04-17
 ---
 * `G_loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=G_out, labels=tf.ones_like(G_out)))`在这样损失函数的指导下，生成图像会倾向于1，（0，1）表示由黑到白，因此图像会越来越白，这里尝试将`labels = tf.zero_loke(G_out)`，发现G_out越来越黑
 
 ***
+
 2019-04-12
 ---
+
 * 网络：生成器31层，判别器5层，单层数据量控制在6G以下
 * 输入：默认(0,1]均匀分布
 * 损失：交叉熵
