@@ -5,7 +5,7 @@ crawlertitle: "open ai lab 目标检测"
 summary: "目标检测"
 date:   2019-04-06 12:13:00 +0700
 categories: posts
-tags: 'Target Detection'
+tags: 'Target detection'
 author: 711E
 ---
 

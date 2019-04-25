@@ -5,7 +5,7 @@ crawlertitle: "Maskrcnn"
 summary: "目标检测"
 date:   2019-04-09 15:39:00 +0700
 categories: posts
-tags: 'Target Detection'
+tags: 'Target detection'
 author: 711E
 ---
 
