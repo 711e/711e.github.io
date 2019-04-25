@@ -5,7 +5,7 @@ crawlertitle: "Interview"
 summary: "Interview"
 date:   2019-04-24 10:37:00 +0700
 categories: posts
-tags: 'Interview'
+tags: ['Interview']
 author: 711E
 ---
 

@@ -5,7 +5,7 @@ crawlertitle: "Tensorflow Fineturn VGG16"
 summary: "Tensorflow 迁移学习"
 date:   2019-03-09 13:04:00 +0700
 categories: posts
-tags: 'tensorflow'
+tags: ['tensorflow']
 author: 711E
 ---
 

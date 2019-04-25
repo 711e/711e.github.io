@@ -5,7 +5,7 @@ crawlertitle: "Tensorflow Dataset 读取"
 summary: "Dataset的batch读取"
 date:   2019-03-07 12:11:10 +0700
 categories: posts
-tags: 'tensorflow'
+tags: ['tensorflow']
 author: 711E
 ---
 

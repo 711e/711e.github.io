@@ -5,7 +5,7 @@ crawlertitle: "远场语音交互"
 summary: "语音交互"
 date:   2019-04-14 12:13:00 +0700
 categories: posts
-tags: 'Voice interaction'
+tags: ['Voice interaction']
 author: 711E
 ---
 
