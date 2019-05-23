@@ -60,9 +60,11 @@ card 3: Audio [Sabine Array Audio], device 0: USB Audio [USB Audio]
 ---
 LDFLAGS 引用第三方库 -L配置第三方库地址 -l库名
 SRC_OBJ 指定obj文件生成方式规则
-        foreach 遍历
+foreach 遍历
+
 五、编码/解码
 ---
+
 ##### 1.编码
 
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 bg: 'dafu.png'
-title: "Debug Record"
+title: "Debug Record1"
 crawlertitle: "About image synthesis"
 summary: "记录一些问题，和调试情况"
 date: 2019-04-17

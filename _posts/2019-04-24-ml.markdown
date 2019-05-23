@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Interview"
-crawlertitle: "Interview"
-summary: "Interview"
+title:  "Machine Learning"
+crawlertitle: "Machine Learning"
+summary: "Machine Learning"
 date:   2019-04-24 10:37:00 +0700
 categories: posts
-tags: ['Interview']
+tags: ['Machine Learning']
 author: 711E
 ---
 
