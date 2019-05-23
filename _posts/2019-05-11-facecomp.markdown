@@ -1,0 +1,94 @@
+---
+layout: post
+title:  "Face Detection"
+crawlertitle: "Face Detection"
+summary: "Face Detection"
+date:   2019-05-06 10:37:00 +0700
+categories: posts
+tags: ['Face Detection']
+author: 711E
+---
+#### 一、Face Detection人脸检测
+目录结构：
+```
+---Makefile
+---images
+---models---det1.tmfile
+            det2.tmfile
+            det3.tmfile
+            LightenedCNN.tmfile
+   lightcnn.cpp
+   lightcnn.hpp
+   mtcnn_utils.cpp
+   mtcnn_utils.hpp
+   mtcnn.cpp
+   mtcnn.hpp
+```
+##### 1.MTCNN人脸检测
+使用MTCNN检测人脸，保存检测到的人脸box。
+##### 2.LightCNN
+使用LightCNN对MTCNN提取的人脸部分做人脸识别，并保存特征文件。
+##### 3.视频检测
+视频检测人脸，标注出识别出来的人脸，对未识别的人脸标注为unknown。
+#### 二、详解
+##### 1.提取特征文件
+```
+img_name = get_image_name();
+```
+从保存图像的文件夹中读取图片列表，返回vector<std::string>型
+```
+    /* MTCNN -- variable definition */
+    std::string model_dir = "./models/";
+    std::vector<face_box> face_info;
+```
+声明权重加载地址和facebox的类型
+```
+  /* lightcnn variable definition */
+  fcv::Mat faceImg;
+  float feature[][256];
+```
+声明特征保存类型
+```
+  /* Specify cpu core for this thread */
+  cpu_set_t mask;
+  CPU_ZERO(&mask);
+  CPU_SET(0,&mask);
+```
+声明使用CPU或GPU
+```
+/* Tengine -- initialization */
+    if (init_tengine_library()<0)
+    {
+	std::cout << " init tengine failed\n";
+	return 1;
+    }
+    if(request_tengine_version("0.9")<0)
+        return -1;
+    std::cout << "Tengine Version: " << get_tengine_version() << endl;
+```
+初始化Tengine
+```
+/* MTCNN -- default value */
+    int min_size=60;
+    float conf_p=0.6;
+    float conf_r=0.7;
+    float conf_o=0.8;
+    float nms_p=0.5;
+    float nms_r=0.7;
+    float nms_o=0.7;
+```
+声明MTCNN的默认值
+```
+/* MTCNN -- initialization */
+   mtcnn* det = new mtcnn(min_size,conf_p,conf_r,conf_o,nms_p,nms_r,nms_o);
+
+   /* MTCNN -- load models */
+   det->load_3model(model_dir);
+
+   /* lightcnn initialization */
+   lightcnn* faceFeature = new lightcnn;
+
+   /* lightcnn load models */
+   faceFeature->init(model_dir);
+   ```
+初始化MTCNN和LightCNN
