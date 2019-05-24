@@ -3,10 +3,56 @@ layout: post
 title:  "Face Detection2"
 crawlertitle: "Face Detection"
 summary: "Face Detection"
-date:   2019-05-06 10:37:00 +0700
+date:   2019-05-12 10:37:00 +0700
 categories: posts
 tags: ['Face Detection']
 author: 711E
 ---
 #### 一、Face Detection人脸检测
 ##### 1.调用摄像头
+* 创建视频窗口
+```
+  fcv::namedWindow(wintitle);
+  fcv::moveWindow(wintitle, 720, 480);
+```
+* 声明摄像头
+```
+int mipi = 1;    /* main camera */
+enum CAM_TYPE type = CAM_OV9750; /* HD camera sensor: OV9750 */
+__u32 width = 640, height = 480; /* resolution: 640x480 */
+RgaRotate rotate = RGA_ROTATE_NONE; /* No rotation */
+__u32 cropx = 0, cropy = 0, cropw = 0, croph = 0;
+int vflip = 0, hflip = 0; /* no flip */
+```
+* 初始化摄像头
+```
+v4l2Camera v4l2(width, height, rotate, vflip, hflip, cropx, cropy, cropw, croph, V4L2_PIX_FMT_NV12);
+    image.create(cv::Size(RGA_ALIGN(width, 16), RGA_ALIGN(height, 16)), CV_8UC3);
+    ret = v4l2.init(v4l2_dev, isp_dev, type);
+    if(ret < 0)
+    {
+        printf("v4l2Camera initialization failed.\n");
+        return ret;
+    }
+```
+* 打开视频流   
+```
+ret = v4l2.streamOn();
+   if(ret < 0)
+       return ret;
+
+   while(1) {
+       gettimeofday(&t0, NULL);
+       /* MIPI Camera -- read video frame */
+       if(ret = v4l2.readFrame(V4L2_PIX_FMT_RGB24,image) < 0)
+           return ret;
+```
+* 对比特征相似度
+```
+  for (int i = 0; i < feature.size(); i++)
+          {
+              float similarity = 0.0;
+              similarity = cosine_dist(feat, feature[i], 256);
+              std::cout << name[i] << " similarity=" << similarity << "\n";
+          }
+```

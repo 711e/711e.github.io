@@ -3,7 +3,7 @@ layout: post
 title:  "Face Detection1"
 crawlertitle: "Face Detection"
 summary: "Face Detection"
-date:   2019-05-06 10:37:00 +0700
+date:   2019-05-011 10:37:00 +0700
 categories: posts
 tags: ['Face Detection']
 author: 711E
@@ -43,26 +43,26 @@ author: 711E
 ```
 img_name = get_image_name();
 ```
-从保存图像的文件夹中读取图片列表，返回vector<std::string>型
+* 从保存图像的文件夹中读取图片列表，返回vector<std::string>型
 ```
     /* MTCNN -- variable definition */
     std::string model_dir = "./models/";
     std::vector<face_box> face_info;
 ```
-声明权重加载地址和facebox的类型
+* 声明权重加载地址和facebox的类型
 ```
   /* lightcnn variable definition */
   fcv::Mat faceImg;
   float feature[][256];
 ```
-声明特征保存类型
+* 声明特征保存类型
 ```
   /* Specify cpu core for this thread */
   cpu_set_t mask;
   CPU_ZERO(&mask);
   CPU_SET(0,&mask);
 ```
-声明使用CPU或GPU
+* 声明使用CPU或GPU
 ```
 /* Tengine -- initialization */
     if (init_tengine_library()<0)
@@ -74,7 +74,7 @@ img_name = get_image_name();
         return -1;
     std::cout << "Tengine Version: " << get_tengine_version() << endl;
 ```
-初始化Tengine
+* 初始化Tengine
 ```
 /* MTCNN -- default value */
     int min_size=60;
@@ -85,7 +85,7 @@ img_name = get_image_name();
     float nms_r=0.7;
     float nms_o=0.7;
 ```
-声明MTCNN的默认值
+* 声明MTCNN的默认值
 ```
 /* MTCNN -- initialization */
    mtcnn* det = new mtcnn(min_size,conf_p,conf_r,conf_o,nms_p,nms_r,nms_o);
@@ -99,7 +99,7 @@ img_name = get_image_name();
    /* lightcnn load models */
    faceFeature->init(model_dir);
    ```
-初始化MTCNN和LightCNN
+* 初始化MTCNN和LightCNN
 ```
 for (int i = 0; i < repeat_count; i++)
         {
@@ -117,11 +117,11 @@ for (int i = 0; i < repeat_count; i++)
         std::cout << "repeat " << repeat_count << ", avg time is " << avg_time / repeat_count << " \n"
                 << "detected face num: " << face_info.size() << "\n";
 ```
-提取特征
+* 提取特征
 ```
 faceFeature->featureExtract(faceImg, feat[i]);
         std::cout <<"feat[" << i << "]" << " is " << feat[i] << "\n";
         // std::cout << "feat[i] type is " << typeid(feat[i]).name() << "\n";
         fout << feat[i] << "\n";
 ```
-保存特征为feature.txt
+* 保存特征为feature.txt
