@@ -11,6 +11,5 @@ author: "711E"
 categories: posts
 ---
 
-2019-04-20:Image Synthesis
----
+#### 2019-04-20:Image Synthesis
 尽量不要在Session()里放任何tf操作，容易导致内存溢出。

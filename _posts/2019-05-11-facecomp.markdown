@@ -8,7 +8,9 @@ categories: posts
 tags: ['Face Detection']
 author: 711E
 ---
+
 #### 一、Face Detection人脸检测
+
 目录结构：
 ```
 ---Makefile
@@ -24,14 +26,20 @@ author: 711E
    mtcnn.cpp
    mtcnn.hpp
 ```
+
 ##### 1.MTCNN人脸检测
 使用MTCNN检测人脸，保存检测到的人脸box。
+
 ##### 2.LightCNN
 使用LightCNN对MTCNN提取的人脸部分做人脸识别，并保存特征文件。
+
 ##### 3.视频检测
 视频检测人脸，标注出识别出来的人脸，对未识别的人脸标注为unknown。
+
 #### 二、详解
+
 ##### 1.提取特征文件
+
 ```
 img_name = get_image_name();
 ```
@@ -92,3 +100,28 @@ img_name = get_image_name();
    faceFeature->init(model_dir);
    ```
 初始化MTCNN和LightCNN
+```
+for (int i = 0; i < repeat_count; i++)
+        {
+            gettimeofday(&t0, NULL);
+
+            /* MTCNN -- detect faces in image */
+            face_info.clear();
+            det->detect(image, face_info);
+            gettimeofday(&t1, NULL);
+
+            float mytime = (float)((t1.tv_sec * 1000000 + t1.tv_usec) - (t0.tv_sec * 1000000 + t0.tv_usec)) / 1000;
+            std::cout << "i =" << i << " time is " << mytime << "\n";
+            avg_time += mytime;
+        }
+        std::cout << "repeat " << repeat_count << ", avg time is " << avg_time / repeat_count << " \n"
+                << "detected face num: " << face_info.size() << "\n";
+```
+提取特征
+```
+faceFeature->featureExtract(faceImg, feat[i]);
+        std::cout <<"feat[" << i << "]" << " is " << feat[i] << "\n";
+        // std::cout << "feat[i] type is " << typeid(feat[i]).name() << "\n";
+        fout << feat[i] << "\n";
+```
+保存特征为feature.txt
