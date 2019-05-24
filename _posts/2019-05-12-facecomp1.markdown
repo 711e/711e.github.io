@@ -1,0 +1,12 @@
+---
+layout: post
+title:  "Face Detection2"
+crawlertitle: "Face Detection"
+summary: "Face Detection"
+date:   2019-05-06 10:37:00 +0700
+categories: posts
+tags: ['Face Detection']
+author: 711E
+---
+#### 一、Face Detection人脸检测
+##### 1.调用摄像头
