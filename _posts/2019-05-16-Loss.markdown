@@ -1,0 +1,12 @@
+---
+layout: post
+title:  "损失函数"
+crawlertitle: "Tensorflow"
+summary: "Tensorflow"
+date:   2019-04-20 13:04:00 +0700
+categories: posts
+tags: ['tensorflow']
+author: 711E
+---
+##### 选择合适的损失函数（choosing proper loss ）
+神经网络的损失函数是非凸的，有多个局部最低点，目标是找到一个可用的最低点。非凸函数是凹凸不平的，但是不同的损失函数凹凸起伏的程度不同 *平方损失和交叉熵损失，后者起伏更大，且更容易找到一个可用的最低点，从而达到优化的目的。*
