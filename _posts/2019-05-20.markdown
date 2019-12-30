@@ -1,0 +1,15 @@
+---
+layout: post
+title:  "激活函数"
+crawlertitle: "Tensorflow"
+summary: "Tensorflow"
+date:   2019-04-20 13:04:00 +0700
+categories: posts
+tags: ['tensorflow']
+author: 711E
+---
+
+##### 选择合适的激活函数（New activation function）
+使用激活函数把卷积层输出结果做非线性映射，但是要选择合适的激活函数。
+Sigmoid函数是一个平滑函数，且具有连续性和可微性，它的最大优点就是非线性。但该函数的两端很缓，会带来猪队友的问题，易发生学不动的情况，产生梯度弥散。
+ReLU函数是如今设计神经网络时使用最广泛的激活函数，该函数为非线性映射，且简单，可缓解梯度弥散。
